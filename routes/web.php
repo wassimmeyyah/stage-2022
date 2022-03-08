@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\employeController;
-use App\Http\Controllers\laboratoireController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,4 +31,4 @@ Route::post('/laboratoire/modifier',[laboratoireController::class, 'update'])->n
 
 Route::get('/employe',[employeController::class, 'show'])->name("goEmploye");
 
-
+// Nordine
