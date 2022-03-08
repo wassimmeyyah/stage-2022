@@ -31,4 +31,4 @@ Route::post('/laboratoire/modifier',[laboratoireController::class, 'update'])->n
 
 Route::get('/employe',[employeController::class, 'show'])->name("goEmploye");
 
-// Nordine
+// Nordine !!
