@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Experimentation extends Model
 {
     use HasFactory;
-    // Wassim !!
-    // Nordine
+    Wassim!!
     // Ca marche ?
 }
