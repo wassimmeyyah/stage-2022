@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Etablissement extends Model
 {
     use HasFactory;
-    Wassim !!
+
 }
