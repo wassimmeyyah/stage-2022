@@ -72,7 +72,7 @@
                         <td class="pt-3-half" > {{$etablissement->getKey()}} </td>
                         <td class="pt-3-half" >{{$etablissement->ETABNom}}</td>
                         <td class="pt-3-half" >{{$etablissement->ETABMail}}</td>
-                        <td><a class="btn btn-primary" type="button" href="{{route('goEtablissementModifier', array('etablissement'=>$etablissement->ETABCode))}}">
+                        <td><a class="btn btn-primary" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissement->ETABCode])}}">
                                     Modifier
 
                                 </a></td>
@@ -81,7 +81,7 @@
                                     Supprimer
 
                                 </a>
-                            <form  action="{{route('goEtablissementSupprimer',array('etablissement'=>$etablissement->ETABCode))}}" method="post">
+                            <form id="{{$etablissement->ETABCode}}" action="{{route('goEtablissementSupprimer',['etablissement'=>$etablissement->ETABCode])}}" method="post">
                                 @csrf
                                     <input type="hidden" name="_method" value="delete">
                             </form>

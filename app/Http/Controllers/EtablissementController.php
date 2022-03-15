@@ -14,6 +14,7 @@ class EtablissementController extends Controller
         //ddd($msg);
         //$etablissement=Etablissement::where('ETABCode',' 0690076H ')->first();
         //ddd($etablissement->ETABCode);
+        //ddd($etablissement->getKey());
 
         if(isset($request->Recherche)) {
             $searchValue = $request->Recherche;
@@ -91,10 +92,10 @@ class EtablissementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($etablissement)
+    public function edit($id)
     {
-        $et = Etablissement::findOrFail($etablissement);
-        return view('goEtablissementModifier');
+        $etablissement = Etablissement::findOrFail($id);
+        return view('etablissementUpdate', compact("etablissement"));
 
     }
 
@@ -105,15 +106,15 @@ class EtablissementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($etablissement)
+    public function update(Request $request, Etablissement $etablissement)
     {
-        var_dump($etablissement);
 
 
 
 
+        $etablissement->delete($etablissement);
 
-        /*$etablissement->update([
+        $etablissement->insert([
             'ETABCode' => $_POST['ETABCode'],
             'ETABNom' => $_POST['ETABNom'],
             'ETABMail' => $_POST['ETABMail'],
@@ -126,7 +127,7 @@ class EtablissementController extends Controller
             'VILCode' => $_POST['VILCode']
         ]);
 
-        return redirect('/etablissement')->with("successModify", "L'etablissement' '$request->ETABNom' a été mise à jour avec succès");*/
+        return redirect('/etablissement')->with("successModify", "L'etablissement' '$request->ETABNom' a été mise à jour avec succès");
     }
 
     /**

@@ -25,7 +25,7 @@
             </div><br />
         @endif
 
-        <form method="post" action="{{ route('goEtablissementModifier', array('etablissement'=>$etablissement->ETABCode)) }}">
+        <form method="post" action="{{ route('goEtablissementModifier', ['etablissement'=>$etablissement->ETABCode])}}">
             .         @csrf
 
             <input type="hidden" name="_method" value="put">
@@ -70,9 +70,10 @@
             </div>
             <div class="form-group">
                 <label for="VILCode">Ville de l'etablissement :</label>
-                <input type="text" class="form-control" name="VilCode" value="{{$etablissement->VILCode}}"/>
+                <input type="text" class="form-control" name="VILCode" value="{{$etablissement->VILCode}}"/>
             </div>
             <button type="submit" class="btn btn-primary">Modifier</button>
+            <a class="btn btn-danger" href="{{route('goEtablissement')}}">Annuler</a>
         </form>
     </div>
 </div>
