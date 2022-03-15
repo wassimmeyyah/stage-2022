@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Peronnel_acad extends Model
+class Personnel_acad extends Model
 {
     /**
      * @return string
