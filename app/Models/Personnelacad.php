@@ -24,7 +24,7 @@ class Personnelacad extends Model
     }
     use HasFactory;
 
-    protected $table='personnel_acad';
+    protected $table='personnelacad';
     protected $primaryKey ='PACode';
 
 

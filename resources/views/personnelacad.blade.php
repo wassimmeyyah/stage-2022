@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- si on veut lier à un fichier css -->
-    <link rel="stylesheet" type="text/css" href="../../html/css/porteur.css" />
+    <link rel="stylesheet" type="text/css" href="../../html/css/personnelacad.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 
@@ -16,7 +16,7 @@
         <a class="navbar-brand text-uppercase text-white " href="{{route('goHome')}}">Accueil</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link  text-white " href="#">Les porteurs </a>
+                <a class="nav-link  text-white " href="#">Le personnel </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link  text-white " href="{{route('goHome')}}">Les experimentations</a>
@@ -25,13 +25,13 @@
     </div>
 </nav>
 <div  class="card " style="text-align: center;">
-    <h3 class="card-header text-center font-weight-bold text-uppercase py-4 p-3 mb-2 bg-primary text-white">Les porteurs</h3>
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4 p-3 mb-2 bg-primary text-white">Le personnel</h3>
 </div>
     <div class="d-flex justify-content-between">
-        {{$porteurs->links()}}
+        {{$personnelacads->links()}}
             <p align="center">
-                <a class="btn btn-primary " type="button" href="{{route('goPorteurAjouter')}}">
-                    Ajouter un porteur
+                <a class="btn btn-primary " type="button" href="{{route('goPersonnelacadAjouter')}}">
+                    Ajouter une personne
 
                 </a>
             </p>
@@ -60,30 +60,38 @@
             <table class="table table-bordered table-responsive-md table-striped text-center">
                 <thead>
                 <tr>
-                    <th class="text-center"> Identifiant du porteur</th>
-                    <th class="text-center"> Nom du porteur</th>
-                    <th class="text-center"> Adresse mail du porteur</th>
-                    <th class="text-center"> Téléphone du porteur</th>
-                    <th class="text-center"> Etablissement du porteur</th>
+                    <th class="text-center"> Identifiant de la personne</th>
+                    <th class="text-center"> Nom de la personne</th>
+                    <th class="text-center"> Prénom de la personne</th>
+                    <th class="text-center"> Adresse mail de la personne</th>
+                    <th class="text-center"> Discipline enseignée par la personne</th>
+                    <th class="text-center"> Adresse de la personne</th>
+                    <th class="text-center"> Téléphone de la personne</th>
+                    <th class="text-center"> Etablissement de la personne</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($porteurs as $porteur)
+                @foreach($personnelacads as $personnelacad)
                     <tr>
-                        <td class="pt-3-half" > {{$porteur->getKey()}} </td>
-                        <td class="pt-3-half" >{{$porteur->PORTNom}}</td>
-                        <td class="pt-3-half" >{{$porteur->PORTMail}}</td>
-                        <td><a class="btn btn-primary" type="button" href="{{route('goPorteurModifier', ['porteur'=>$porteur->PORTCode])}}">
+                        <td class="pt-3-half" > {{$personnelacad->getKey()}} </td>
+                        <td class="pt-3-half" >{{$personnelacad->PANom}}</td>
+                        <td class="pt-3-half" >{{$personnelacad->PAPrenom}}</td>
+                        <td class="pt-3-half" >{{$personnelacad->PAMail}}</td>
+                        <td class="pt-3-half" >{{$personnelacad->PADiscipline}}</td>
+                        <td class="pt-3-half" >{{$personnelacad->PAAdressePerso}}</td>
+                        <td class="pt-3-half" >{{$personnelacad->PATel}}</td>
+                        <td class="pt-3-half" >{{$personnelacad->ETABCode}}</td>
+                        <td><a class="btn btn-primary" type="button" href="{{route('goPersonnelacadModifier', ['personnelacad'=>$personnelacad->PACode])}}">
                                     Modifier
 
                                 </a></td>
                         <td>
-                                <a  href="#" class="btn btn-danger" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer ce porteur ?')){document.getElementById('{{$porteur->PORTCode}}').submit() }" >
+                                <a  href="#" class="btn btn-danger" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer ce personnelacad ?')){document.getElementById('{{$personnelacad->PACode}}').submit() }" >
                                     Supprimer
 
                                 </a>
-                            <form id="{{$porteur->PORTCode}}" action="{{route('goPorteurSupprimer',['porteur'=>$porteur->PORTCode])}}" method="post">
+                            <form id="{{$personnelacad->PACode}}" action="{{route('goPersonnelacadSupprimer',['personnelacad'=>$personnelacad->PACode])}}" method="post">
                                 @csrf
                                     <input type="hidden" name="_method" value="delete">
                             </form>

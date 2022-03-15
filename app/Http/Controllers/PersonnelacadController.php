@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Personnelacad;
 use Illuminate\Http\Request;
-use Illuminate\SupPA\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class PersonnelacadController extends Controller
 {
@@ -12,7 +12,7 @@ class PersonnelacadController extends Controller
         
         if(isset($request->Recherche)) {
             $searchValue = $request->Recherche;
-            $personnelacads = \App\Models\Personnelacad::where('PORTCode','LIKE', $searchValue . '%')->get();
+            $personnelacads = \App\Models\Personnelacad::where('PACode','LIKE', $searchValue . '%')->get();
             //return view("viewPersonnelacad", ["personnelacads" => $personnelacads]);
         }else {
             $personnelacads = \App\Models\Personnelacad::orderBy("PACode","asc")->paginate(10);
@@ -56,13 +56,15 @@ class PersonnelacadController extends Controller
         $res = DB::table('personnelacad')->insert([
             'PACode' => $_POST['PACode'],
             'PANom' => $_POST['PANom'],
+            'PAPrenom' => $_POST['PAPrenom'],
             'PAMail' => $_POST['PAMail'],
+            'PAAdressePerso' => $_POST['PAAdressePerso'],
             'PATel' => $_POST['PATel'],
             'ETABCode' => $_POST['ETABCode']
         ]);
 
 
-        return redirect('/personnelacad')->with("successAjout", "le personnelacad' '$request->PANom'a été ajouté avec succès");
+        return redirect('/personnelacad')->with("successAjout", "la personne' '$request->PANom'a été ajoutée avec succès");
     }
 
     /**
@@ -104,12 +106,14 @@ class PersonnelacadController extends Controller
         $personnelacad->insert([
             'PACode' => $_POST['PACode'],
             'PANom' => $_POST['PANom'],
+            'PAPrenom' => $_POST['PAPrenom'],
             'PAMail' => $_POST['PAMail'],
+            'PAAdressePerso' => $_POST['PAAdressePerso'],
             'PATel' => $_POST['PATel'],
             'ETABCode' => $_POST['ETABCode']
         ]);
 
-        return redirect('/personnelacad')->with("successModify", "Le personnelacad' '$request->PANom' a été mise à jour avec succès");
+        return redirect('/personnelacad')->with("successModify", "La personne' '$request->PANom' a été mise à jour avec succès");
     }
 
     /**
@@ -123,6 +127,6 @@ class PersonnelacadController extends Controller
         $nomPA = $personnelacad->PANom;
         $personnelacad->delete();
 
-        return back()->with("successDelete", "Le personnelacad' '$nomPA' a été supprimé avec succèss");
+        return back()->with("successDelete", "La personne' '$nomPA' a été supprimée avec succèss");
     }
 }

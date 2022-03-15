@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\PersonnelacadController;
 use App\Http\Controllers\PorteurController;
 
 Route::get('/', function () {
@@ -45,6 +46,19 @@ Route::get('/porteur/{porteur}',[PorteurController::class, 'edit'])->name("goPor
 Route::put('/porteur/{porteur}',[PorteurController::class, 'update'])->name("goPorteurModifier");
 
 Route::delete('/porteur/{porteur}',[PorteurController::class, 'delete'])->name("goPorteurSupprimer");
+
+
+Route::get('/personnelacad',[PersonnelacadController::class, 'show'])->name("goPersonnelacad");
+
+Route::get('/personnelacad/ajouter',[PersonnelacadController::class, 'create'])->name("goPersonnelacadAjouter");
+
+Route::post('/personnelacad/ajouter',[PersonnelacadController::class, 'store'])->name("goPersonnelacadAjouter");
+
+Route::get('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'edit'])->name("goPersonnelacadModifier");
+
+Route::put('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'update'])->name("goPersonnelacadModifier");
+
+Route::delete('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'delete'])->name("goPersonnelacadSupprimer");
 
 //Route::get('/experimentation',[employeController::class, 'show'])->name("goExperimentation");
 
