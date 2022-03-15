@@ -9,4 +9,5 @@ class Experimentation extends Model
 {
     use HasFactory;
 
+
 }

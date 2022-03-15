@@ -13,22 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\EtablissementController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name("goHome");
 
 
-Route::get('/laboratoire',[laboratoireController::class, 'show'])->name("goLaboratoire");
+Route::get('/etablissement',[EtablissementController::class, 'show'])->name("goEtablissement");
 
-Route::get('/laboratoire/ajouter',[laboratoireController::class, 'create'])->name("goLaboratoireAjouter");
+Route::get('/etablissement/ajouter',[EtablissementController::class, 'create'])->name("goEtablissementAjouter");
 
-Route::post('/laboratoire/ajouter',[laboratoireController::class, 'store'])->name("goLaboratoireAjouter");
+Route::post('/etablissement/ajouter',[EtablissementController::class, 'store'])->name("goEtablissementAjouter");
 
-Route::get('/laboratoire/modifier',[laboratoireController::class, 'up'])->name("goLaboratoireModifier");
+Route::get('/etablissement/{etablissement}',[EtablissementController::class, 'edit'])->name("goEtablissementModifier");
 
-Route::post('/laboratoire/modifier',[laboratoireController::class, 'update'])->name("goLaboratoireModifier");
+Route::put('/etablissement/{etablissement}',[EtablissementController::class, 'update'])->name("goEtablissementModifier");
 
-Route::get('/employe',[employeController::class, 'show'])->name("goEmploye");
+Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 'delete'])->name("goEtablissementSupprimer");
 
-// Nordine !!
+//Route::get('/experimentation',[employeController::class, 'show'])->name("goExperimentation");
+
+
