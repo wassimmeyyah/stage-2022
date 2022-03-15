@@ -43,6 +43,17 @@
                 </p></p>
             </div>
         </div>
+        <div class="card" align="center" style="width: 18rem;">
+            <img src="/Image/imagePort.png" class="card-img-top" alt="/Image/imagePort.png">
+            <div class="card-body">
+                <p class="card-text">
+                <p align="center">
+                    <a class="favorite styled" type="button" href="{{route('goPorteur')}}">
+                        Les porteurs de projet
+                    </a>
+                </p></p>
+            </div>
+        </div>
     </div>
 </div>
 

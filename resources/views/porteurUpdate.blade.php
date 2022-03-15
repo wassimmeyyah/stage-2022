@@ -37,19 +37,19 @@
 
             <div class="form-group">
                     <label for="PORTNom">Nom du porteur :</label>
-                    <input type="text" class="form-control" name="PORTNom"/>
+                    <input type="text" class="form-control" name="PORTNom" value="{{$porteur->PORTNom}}"/>
                 </div>
                 <div class="form-group">
                     <label for="PORTMail">Adresse Mail du porteur :</label>
-                    <input type="text" class="form-control" name="PORTMail"/>
+                    <input type="text" class="form-control" name="PORTMail" value="{{$porteur->PORTMail}}"/>
                 </div>
                 <div class="form-group">
                     <label for="PORTChef">Téléphone du porteur : :</label>
-                    <input type="text" class="form-control" name="PORTTel"/>
+                    <input type="text" class="form-control" name="PORTTel" value="{{$porteur->PORTChef}}"/>
                 </div>
                 <div class="form-group">
                     <label for="PORTAdresse">Etablissement du porteur :</label>
-                    <input type="text" class="form-control" name="ETABCode"/>
+                    <input type="text" class="form-control" name="ETABCode" value="{{$porteur->PORTAdresse}}"/>
                 </div>
             <button type="submit" class="btn btn-primary">Modifier</button>
             <a class="btn btn-danger" href="{{route('goEtablissement')}}">Annuler</a>

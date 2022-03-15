@@ -15,12 +15,16 @@
     <div class="collapse navbar-collapse p-3 mb-2 bg-danger " id="navbarTogglerDemo01">
         <a class="navbar-brand text-uppercase text-white " href="{{route('goHome')}}">Accueil</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link  text-white " href="#">Les porteurs </a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link  text-white " href="{{route('goHome')}}">Les experimentations</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link  text-white " href="{{route('goEtablissement')}}">Les etablissements</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link  text-white " href="#">Les porteurs </a>
+            </li>
+
         </ul>
     </div>
 </nav>
@@ -63,8 +67,7 @@
                     <th class="text-center"> Identifiant du porteur</th>
                     <th class="text-center"> Nom du porteur</th>
                     <th class="text-center"> Adresse mail du porteur</th>
-                    <th class="text-center"> Téléphone du porteur</th>
-                    <th class="text-center"> Etablissement du porteur</th>
+
 
                 </tr>
                 </thead>
