@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\PorteurController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +32,19 @@ Route::get('/etablissement/{etablissement}',[EtablissementController::class, 'ed
 Route::put('/etablissement/{etablissement}',[EtablissementController::class, 'update'])->name("goEtablissementModifier");
 
 Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 'delete'])->name("goEtablissementSupprimer");
+
+
+Route::get('/porteur',[PorteurController::class, 'show'])->name("goPorteur");
+
+Route::get('/porteur/ajouter',[PorteurController::class, 'create'])->name("goPorteurAjouter");
+
+Route::post('/porteur/ajouter',[PorteurController::class, 'store'])->name("goPorteurAjouter");
+
+Route::get('/porteur/{porteur}',[PorteurController::class, 'edit'])->name("goPorteurModifier");
+
+Route::put('/porteur/{porteur}',[PorteurController::class, 'update'])->name("goPorteurModifier");
+
+Route::delete('/porteur/{porteur}',[PorteurController::class, 'delete'])->name("goPorteurSupprimer");
 
 //Route::get('/experimentation',[employeController::class, 'show'])->name("goExperimentation");
 
