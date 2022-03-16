@@ -35,7 +35,6 @@
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4 p-3 mb-2 bg-primary text-white">Les porteurs</h3>
     </div>
     <div class="d-flex justify-content-between">
-        {{$porteur->links()}}
         @include('partials.search2')
         <p align="center">
             <a class="btn btn-primary " type="button" href="{{route('goPorteurAjouter')}}">
@@ -62,7 +61,7 @@
         </div>
     @endif
     @if(request()->input())
-        <h6>{{$porteur->total()}} résultat(s) pour la recherche </h6>
+        <h6>{{$porteur->count()}} résultat(s) pour la recherche </h6>
     @endif
 
     <div class="card-body">

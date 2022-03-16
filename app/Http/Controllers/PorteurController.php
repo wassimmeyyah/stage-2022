@@ -133,7 +133,7 @@ class PorteurController extends Controller
             ->orWhere('PORTMail','like',"%$q%")
             ->orWhere('PORTTel','like',"%$q%")
             ->orWhere('ETABCode','like',"%$q%")
-            ->paginate(10);
+            ->get();
 
         return view('porteurSearch')->with('porteur', $porteurs);
     }
