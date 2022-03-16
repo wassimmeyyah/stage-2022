@@ -28,10 +28,7 @@
 
             <form method="post" action="{{ route('goPersonnelacadAjouter') }}">
                          @csrf
-                <div class="form-group">
-                    <label for="PACode">Identifiant de la personne' :</label>
-                    <input type="text" class="form-control" name="PACode"/>
-                </div>
+
 
                 <div class="form-group">
                     <label for="PANom">Nom de la personne :</label>
@@ -61,7 +58,7 @@
                     <label for="PAAdresse">Etablissement de la personne :</label>
                     <input type="text" class="form-control" name="ETABCode"/>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Ajouter</button>
                 <a class="btn btn-danger" href="{{route('goPersonnelacad')}}">Annuler</a>
             </form>

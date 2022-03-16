@@ -54,7 +54,7 @@ class PersonnelacadController extends Controller
     {
 
         $res = DB::table('personnelacad')->insert([
-            'PACode' => $_POST['PACode'],
+
             'PANom' => $_POST['PANom'],
             'PAPrenom' => $_POST['PAPrenom'],
             'PAMail' => $_POST['PAMail'],

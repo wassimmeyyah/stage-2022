@@ -28,10 +28,7 @@
 
             <form method="post" action="{{ route('goPorteurAjouter') }}">
                          @csrf
-                <div class="form-group">
-                    <label for="PORTCode">Identifiant du porteur' :</label>
-                    <input type="text" class="form-control" name="PORTCode"/>
-                </div>
+
 
                 <div class="form-group">
                     <label for="PORTNom">Nom du porteur :</label>
@@ -49,7 +46,7 @@
                     <label for="PORTAdresse">Etablissement du porteur :</label>
                     <input type="text" class="form-control" name="ETABCode"/>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Ajouter</button>
                 <a class="btn btn-danger" href="{{route('goPorteur')}}">Annuler</a>
             </form>

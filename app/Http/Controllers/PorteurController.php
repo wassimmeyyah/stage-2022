@@ -54,7 +54,7 @@ class PorteurController extends Controller
     {
 
         $res = DB::table('porteur')->insert([
-            'PORTCode' => $_POST['PORTCode'],
+
             'PORTNom' => $_POST['PORTNom'],
             'PORTMail' => $_POST['PORTMail'],
             'PORTTel' => $_POST['PORTTel'],
