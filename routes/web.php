@@ -34,6 +34,9 @@ Route::put('/etablissement/{etablissement}',[EtablissementController::class, 'up
 
 Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 'delete'])->name("goEtablissementSupprimer");
 
+Route::get('/search', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
+
+
 
 Route::get('/porteur',[PorteurController::class, 'show'])->name("goPorteur");
 

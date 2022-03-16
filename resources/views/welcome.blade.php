@@ -54,6 +54,18 @@
                 </p></p>
             </div>
         </div>
+        <div class="card" align="center" style="width: 18rem;">
+            <img src="/Image/imagePers.jpg" class="card-img-top" alt="/Image/imagePers.jpg">
+            <div class="card-body">
+                <p class="card-text">
+                <p align="center">
+                    <a class="favorite styled" type="button" href="{{route('goPersonnelacad')}}">
+                        Le personnel académique
+                    </a>
+                </p></p>
+            </div>
+        </div>
+
     </div>
 </div>
 

@@ -22,7 +22,10 @@
                 <a class="nav-link  text-white " href="{{route('goEtablissement')}}">Les etablissements</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link  text-white " href="#">Les porteurs </a>
+                <a class="nav-link  text-white " href="{{route('goPorteur')}}">Les porteurs </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  text-white " href="{{route('goPersonnelacad')}}">Le personnel</a>
             </li>
 
         </ul>
