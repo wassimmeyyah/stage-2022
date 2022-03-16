@@ -34,7 +34,6 @@
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4 p-3 mb-2 bg-primary text-white">Le personnel</h3>
     </div>
     <div class="d-flex justify-content-between">
-        {{$personnelacad->links()}}
         @include('partials.search3')
         <p align="center">
             <a class="btn btn-primary " type="button" href="{{route('goPersonnelacadAjouter')}}">
@@ -61,7 +60,7 @@
         </div>
     @endif
     @if(request()->input())
-        <h6>{{$personnelacad->total()}} résultat(s) pour la recherche </h6>
+        <h6>{{$personnelacad->count()}} résultat(s) pour la recherche </h6>
     @endif
 
 

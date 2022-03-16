@@ -58,6 +58,7 @@ class PersonnelacadController extends Controller
             'PANom' => $_POST['PANom'],
             'PAPrenom' => $_POST['PAPrenom'],
             'PAMail' => $_POST['PAMail'],
+            'PADiscipline' => $_POST['PADiscipline'],
             'PAAdressePerso' => $_POST['PAAdressePerso'],
             'PATel' => $_POST['PATel'],
             'ETABCode' => $_POST['ETABCode']
@@ -108,6 +109,7 @@ class PersonnelacadController extends Controller
             'PANom' => $_POST['PANom'],
             'PAPrenom' => $_POST['PAPrenom'],
             'PAMail' => $_POST['PAMail'],
+            'PADiscipline' => $_POST['PADiscipline'],
             'PAAdressePerso' => $_POST['PAAdressePerso'],
             'PATel' => $_POST['PATel'],
             'ETABCode' => $_POST['ETABCode']
@@ -136,10 +138,11 @@ class PersonnelacadController extends Controller
             ->orWhere('PANom','like',"%$q%")
             ->orWhere('PAPrenom','like',"%$q%")
             ->orWhere('PAMail','like',"%$q%")
+            ->orWhere('PAdiscipline', 'like',"%$q%")
             ->orWhere('PAAdressePerso','like',"%$q%")
             ->orWhere('PATel','like',"%$q%")
             ->orWhere('ETABCode','like',"%$q%")
-            ->paginate(10);
+            ->get();
 
         return view('personnelacadSearch')->with('personnelacad', $personnelacads);
     }

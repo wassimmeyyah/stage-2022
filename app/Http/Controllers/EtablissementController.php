@@ -157,7 +157,7 @@ class EtablissementController extends Controller
             ->orWhere('TYPCode','like',"%$q%")
             ->orWhere('SPECode','like',"%$q%")
             ->orWhere('VILCode','like',"%$q%")
-            ;
+            ->get();
 
         return view('etablissementSearch')->with('etablissement', $etablissements);
     }
