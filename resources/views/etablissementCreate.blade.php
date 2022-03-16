@@ -56,19 +56,39 @@
 
                 <div class="form-group">
                     <label for="TERRCode">Departement :</label>
-                    <input type="text" class="form-control" name="TERRCode"/>
+                    <select  class="form-control" >
+                        <option value=""></option>
+                        @foreach($territoires as $territoire)
+                            <option value="{{$territoire->TERRCode}}">{{$territoire->TERRNom}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="TYPCode">Type de l'etablissment :</label>
-                    <input type="text" class="form-control" name="TYPCode"/>
+                    <select  class="form-control" >
+                        <option value=""></option>
+                        @foreach($types as $type)
+                            <option value="{{$type->TYPCode}}">{{$type->TYPNom}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="SPECode">Spécialité de l'etablissement :</label>
-                    <input type="text" class="form-control" name="SPECode"/>
+                    <select class="form-control" >
+                        <option value=""></option>
+                        @foreach($specialites as $specialite)
+                            <option value="{{$specialite->SPECode}}">{{$specialite->SPENom}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="VILCode">Ville de l'etablissement :</label>
-                    <input type="text" class="form-control" name="VILCode"/>
+                    <select class="form-control" >
+                        <option value=""></option>
+                        @foreach($villes as $ville)
+                            <option value="{{$ville->VILCode}}">{{$ville->VILNom}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Ajouter</button>
                 <a class="btn btn-danger" href="{{route('goEtablissement')}}">Annuler</a>

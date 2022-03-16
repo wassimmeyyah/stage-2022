@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etablissement;
+use App\Models\Specialite;
+use App\Models\Territoire;
+use App\Models\Type;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,7 +46,12 @@ class EtablissementController extends Controller
      */
     public function create()
     {
-        return view('etablissementCreate');
+        $territoires= Territoire::all();
+        $types = Type::all();
+        $specialites  = Specialite::all();
+        $villes = Ville::all();
+
+        return view('etablissementCreate', compact('territoires','types','specialites','villes'));
     }
 
     public function up(Etablissement $etablissement)
@@ -158,7 +167,7 @@ class EtablissementController extends Controller
             ->orWhere('SPECode','like',"%$q%")
             ->orWhere('VILCode','like',"%$q%")
             ->get();
-        // test
+
         return view('etablissementSearch')->with('etablissement', $etablissements);
     }
 }

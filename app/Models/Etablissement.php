@@ -35,8 +35,11 @@ class Etablissement extends Model
      * @var mixed
      */
 
-    public function territoire(){
+   /* public function territoire(){
         return $this->hasOne(Territoire::class);
+    }*/
+    public function territoire() {
+        return $this->belongsTo('territoire', 'TERRCode');
     }
 
     public function specialite(){
@@ -51,11 +54,11 @@ class Etablissement extends Model
         return $this->hasOne(Ville::class);
     }
 
-    function porteur() {
+    public function porteur() {
         return $this->belongsTo('porteur', 'ETABCode');
     }
 
-    function coordination() {
+    public function coordination() {
         return $this->belongsTo('coordination', 'ETABCode');
     }
 

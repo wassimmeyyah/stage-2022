@@ -16,4 +16,11 @@ class Territoire extends Model
     protected $keyType = 'string';
     public $incrementing ='false';
     protected $connection ='mysql';
+
+   /* public function etablissement(){
+        return $this->belongsTo('etablissement', 'TERRCode');
+    }*/
+    public function etablissement(){
+        return $this->hasOne(Etablissement::class);
+    }
 }
