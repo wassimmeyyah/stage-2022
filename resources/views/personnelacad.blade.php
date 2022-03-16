@@ -35,6 +35,7 @@
 </div>
     <div class="d-flex justify-content-between">
         {{$personnelacads->links()}}
+        @include('partials.search3')
             <p align="center">
                 <a class="btn btn-primary " type="button" href="{{route('goPersonnelacadAjouter')}}">
                     Ajouter une personne

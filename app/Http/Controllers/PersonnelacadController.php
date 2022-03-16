@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class PersonnelacadController extends Controller
 {
     public function  show(Request $request){
-        
+
         if(isset($request->Recherche)) {
             $searchValue = $request->Recherche;
             $personnelacads = \App\Models\Personnelacad::where('PACode','LIKE', $searchValue . '%')->get();
@@ -128,5 +128,19 @@ class PersonnelacadController extends Controller
         $personnelacad->delete();
 
         return back()->with("successDelete", "La personne' '$nomPA' a été supprimée avec succèss");
+    }
+
+    public function search(){
+        $q = request()->input('q');
+        $personnelacads = Personnelacad::where('PACode','like',"%$q%")
+            ->orWhere('PANom','like',"%$q%")
+            ->orWhere('PAPrenom','like',"%$q%")
+            ->orWhere('PAMail','like',"%$q%")
+            ->orWhere('PAAdressePerso','like',"%$q%")
+            ->orWhere('PATel','like',"%$q%")
+            ->orWhere('ETABCode','like',"%$q%")
+            ->paginate(10);
+
+        return view('personnelacadSearch')->with('personnelacad', $personnelacads);
     }
 }

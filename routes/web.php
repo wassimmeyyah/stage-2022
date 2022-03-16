@@ -34,7 +34,7 @@ Route::put('/etablissement/{etablissement}',[EtablissementController::class, 'up
 
 Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 'delete'])->name("goEtablissementSupprimer");
 
-Route::get('/search', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
+Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
 
 
 
@@ -50,6 +50,10 @@ Route::put('/porteur/{porteur}',[PorteurController::class, 'update'])->name("goP
 
 Route::delete('/porteur/{porteur}',[PorteurController::class, 'delete'])->name("goPorteurSupprimer");
 
+Route::get('search2', [PorteurController::class, 'search'])->name("goPorteurSearch");
+
+
+
 
 Route::get('/personnelacad',[PersonnelacadController::class, 'show'])->name("goPersonnelacad");
 
@@ -62,6 +66,8 @@ Route::get('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'ed
 Route::put('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'update'])->name("goPersonnelacadModifier");
 
 Route::delete('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'delete'])->name("goPersonnelacadSupprimer");
+
+Route::get('search3', [PersonnelacadController::class, 'search'])->name("goPersonnelacadSearch");
 
 //Route::get('/experimentation',[employeController::class, 'show'])->name("goExperimentation");
 

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class PorteurController extends Controller
 {
     public function  show(Request $request){
-        
+
         if(isset($request->Recherche)) {
             $searchValue = $request->Recherche;
             $porteurs = \App\Models\porteur::where('PORTCode','LIKE', $searchValue . '%')->get();
@@ -124,5 +124,17 @@ class PorteurController extends Controller
         $porteur->delete();
 
         return back()->with("successDelete", "Le porteur' '$nomPORT' a été supprimé avec succèss");
+    }
+
+    public function search(){
+        $q = request()->input('q');
+        $porteurs = Porteur::where('PORTCode','like',"%$q%")
+            ->orWhere('PORTNom','like',"%$q%")
+            ->orWhere('PORTMail','like',"%$q%")
+            ->orWhere('PORTTel','like',"%$q%")
+            ->orWhere('ETABCode','like',"%$q%")
+            ->paginate(10);
+
+        return view('porteurSearch')->with('porteur', $porteurs);
     }
 }

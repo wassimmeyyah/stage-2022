@@ -36,6 +36,7 @@
 </div>
     <div class="d-flex justify-content-between">
         {{$porteurs->links()}}
+        @include('partials.search2')
             <p align="center">
                 <a class="btn btn-primary " type="button" href="{{route('goPorteurAjouter')}}">
                     Ajouter un porteur
