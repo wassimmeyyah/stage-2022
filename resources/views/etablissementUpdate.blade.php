@@ -58,19 +58,56 @@
 
             <div class="form-group">
                 <label for="TERRCode">Departement :</label>
-                <input type="text" class="form-control" name="TERRCode" value="{{$etablissement->TERRCode}}"/>
+                <select class="form-control" name="TERRCode" >
+                    <option value=""></option>
+                    @foreach($territoires as $territoire)
+                        @if($territoire->TERRCode == $etablissement->TERRCode)
+                            <option value="{{$territoire->TERRCode}}" selected>{{$territoire->TERRNom}}</option>
+                        @else
+                            <option value="{{$territoire->TERRCode}}">{{$territoire->TERRNom}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
+
             <div class="form-group">
                 <label for="TYPCode">Type de l'etablissment :</label>
-                <input type="text" class="form-control" name="TYPCode" value="{{$etablissement->TYPCode}}"/>
+                <select class="form-control" name="TYPCode">
+                    <option value=""></option>
+                    @foreach($types as $type)
+                        @if($type->TYPCode == $etablissement->TYPCode)
+                            <option value="{{$type->TYPCode}}" selected>{{$type->TYPNom}}</option>
+                        @else
+                            <option value="{{$type->TYPCode}}">{{$type->TYPNom}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="SPECode">Spécialité de l'etablissement :</label>
-                <input type="text" class="form-control" name="SPECode" value="{{$etablissement->SPECode}}"/>
+                <select class="form-control" name="SPECode" >
+                    <option value=""></option>
+                    @foreach($specialites as $specialite)
+                        @if($specialite->SPECode == $etablissement->SPECode)
+                            <option value="{{$specialite->SPECode}}" selected>{{$specialite->SPENom}}</option>
+                        @else
+                            <option value="{{$specialite->SPECode}}">{{$specialite->SPENom}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="VILCode">Ville de l'etablissement :</label>
-                <input type="text" class="form-control" name="VILCode" value="{{$etablissement->VILCode}}"/>
+                <select class="form-control" name="VILCode" >
+                    <option value=""></option>
+                    @foreach($villes as $ville)
+                        @if($ville->VILCode == $etablissement->VILCode)
+                            <option value="{{$ville->VILCode}}" selected>{{$ville->VILNom}}</option>
+                        @else
+                            <option value="{{$ville->VILCode}}">{{$ville->VILNom}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Modifier</button>
             <a class="btn btn-danger" href="{{route('goEtablissement')}}">Annuler</a>

@@ -47,7 +47,7 @@ class Etablissement extends Model
     }
 
     public function type(){
-        return $this->hasOne(Type::class);
+        return $this->belongsTo('type','TYPCode');
     }
 
     public function ville(){

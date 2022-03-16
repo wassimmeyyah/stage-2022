@@ -16,4 +16,8 @@ class Type extends Model
     protected $keyType = 'string';
     public $incrementing ='false';
     protected $connection ='mysql';
+
+    public function etablissement(){
+        return $this->hasOne(Etablissement::class);
+    }
 }

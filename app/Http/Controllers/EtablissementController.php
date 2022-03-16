@@ -68,6 +68,10 @@ class EtablissementController extends Controller
      */
     public function store(Request $request)
     {
+        $territoires= Territoire::all();
+        $types = Type::all();
+        $specialites  = Specialite::all();
+        $villes = Ville::all();
 
         $res = DB::table('etablissement')->insert([
             'ETABCode' => $_POST['ETABCode'],
@@ -104,8 +108,13 @@ class EtablissementController extends Controller
      */
     public function edit($id)
     {
+        $territoires= Territoire::all();
+        $types = Type::all();
+        $specialites  = Specialite::all();
+        $villes = Ville::all();
+
         $etablissement = Etablissement::findOrFail($id);
-        return view('etablissementUpdate', compact("etablissement"));
+        return view('etablissementUpdate', compact("etablissement",'territoires','types','specialites','villes'));
 
     }
 
