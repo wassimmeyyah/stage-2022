@@ -179,4 +179,27 @@ class EtablissementController extends Controller
 
         return view('etablissementSearch')->with('etablissement', $etablissements);
     }
+
+    public function affiche(){
+        return view("etablissementAffichage");
+    }
+
+    public function  show2(Request $request){
+        //$msg = "Hello";
+        //ddd($msg);
+        //$etablissement=Etablissement::where('ETABCode',' 0690076H ')->first();
+        //ddd($etablissement->ETABCode);
+        //ddd($etablissement->getKey());
+
+        if(isset($request->Recherche)) {
+            $searchValue = $request->Recherche;
+            $etablissements = \App\Models\etablissement::where('ETABCode','LIKE', $searchValue . '%')->get();
+            //return view("viewEtablissement", ["etablissements" => $etablissements]);
+        }else {
+            $etablissements = \App\Models\etablissement::orderBy("ETABCode","asc")->paginate(10);
+            //return view("etablissement", ["etablissements" => $etablissements]);
+        }
+
+        return view("etablissement2", ["etablissements" => $etablissements]);
+    }
 }

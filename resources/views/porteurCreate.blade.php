@@ -43,7 +43,7 @@
                     <input type="text" class="form-control" name="PORTTel"/>
                 </div>
                 <div class="form-group">
-                    <label for="PORTAdresse">Etablissement du porteur :</label>
+                    <label for="PORTAdresse">Numero RNE de l'etablissement du porteur :</label>
                     <input type="text" class="form-control" name="ETABCode"/>
                 </div>
 

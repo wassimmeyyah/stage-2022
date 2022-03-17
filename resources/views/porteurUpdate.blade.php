@@ -48,7 +48,7 @@
                     <input type="text" class="form-control" name="PORTTel" value="{{$porteur->PORTChef}}"/>
                 </div>
                 <div class="form-group">
-                    <label for="PORTAdresse">Etablissement du porteur :</label>
+                    <label for="PORTAdresse">Numero RNE de l'etablissement du porteur :</label>
                     <input type="text" class="form-control" name="ETABCode" value="{{$porteur->PORTAdresse}}"/>
                 </div>
             <button type="submit" class="btn btn-primary">Modifier</button>

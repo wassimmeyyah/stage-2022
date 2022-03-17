@@ -24,6 +24,8 @@ Route::get('/', function () {
 
 Route::get('/etablissement',[EtablissementController::class, 'show'])->name("goEtablissement");
 
+Route::get('/etablissement2',[EtablissementController::class, 'show2'])->name("goEtablissement2");
+
 Route::get('/etablissement/ajouter',[EtablissementController::class, 'create'])->name("goEtablissementAjouter");
 
 Route::post('/etablissement/ajouter',[EtablissementController::class, 'store'])->name("goEtablissementAjouter");
@@ -33,6 +35,8 @@ Route::get('/etablissement/{etablissement}',[EtablissementController::class, 'ed
 Route::put('/etablissement/{etablissement}',[EtablissementController::class, 'update'])->name("goEtablissementModifier");
 
 Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 'delete'])->name("goEtablissementSupprimer");
+
+Route::get('/affichage', [EtablissementController::class, 'affiche'])->name("goEtablissementAffichage");
 
 Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
 

@@ -60,7 +60,7 @@
                     <input type="text" class="form-control" name="PATel" value="{{$personnelacad->PATel}}"/>
                 </div>
                 <div class="form-group">
-                    <label for="PAAdresse">Etablissement de la personne :</label>
+                    <label for="PAAdresse">Numero RNE de l'etablissement de la personne  :</label>
                     <input type="text" class="form-control" name="ETABCode" value="{{$personnelacad->ETABCode}}"/>
                 </div>
             <button type="submit" class="btn btn-primary">Modifier</button>
