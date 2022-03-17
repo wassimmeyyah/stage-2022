@@ -5,6 +5,7 @@
     <!-- si on veut lier à un fichier css -->
     <link rel="stylesheet" type="text/css" href="../../html/css/etablissement.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
 </head>
 
 <div class="container">
@@ -31,7 +32,7 @@
             </ul>
         </div>
     </nav>
-    <div  class="card " style="text-align: center;">
+    <div class="card " style="text-align: center;">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4 p-3 mb-2 bg-primary text-white">Les Etablissements</h3>
     </div>
     <div class="d-flex justify-content-between">
@@ -46,79 +47,87 @@
 
 
     </div>
-    <div class="form-group mr-3 d-flex justify-content-end p-2" >
-        <label for="filtreType" >Filtrer par région </label>
-        <select id="filtreType" wire:model="filtreType" style="min-width:110px;">
-            <option value=""></option>
-            <option value="RHO">Rhone</option>
-            <option value="LOI">Loire</option>
-            <option value="AIN">Ain</option>
-        </select>
 
+
+
+    <div class="dropdown d-flex justify-content-end">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Région
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Rhone</a>
+            <a class="dropdown-item" href="#">Loire</a>
+            <a class="dropdown-item" href="#">Ain</a>
+        </div>
+
+        <div class="dropdown d-flex justify-content-end">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Type
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">ECL</a>
+                <a class="dropdown-item" href="#">CLG</a>
+                <a class="dropdown-item" href="#">LYC</a>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i></button>
+            </div>
+        </div>
     </div>
-    <div class="form-group mr-3 d-flex justify-content-end p-2" >
-        <label for="filtreRegion">Filtrer par type </label>
-        <select id="filtreRegion" wire:model="filtreRegion" style="min-width:110px;">
-            <option value=""></option>
-            <option value="ECL">Ecole</option>
-            <option value="CLG">Collège</option>
-            <option value="LYC">Lycée</option>
-        </select>
-    </div>
+
+
 
     @if(session()->has("successDelete"))
-        <div class="alert alert-success">
-            <h3>{{session()->get('successDelete')}}</h3>
-        </div>
+    <div class="alert alert-success">
+        <h3>{{session()->get('successDelete')}}</h3>
+    </div>
     @endif
     @if(session()->has("successAjout"))
-        <div class="alert alert-success">
-            <h3>{{session()->get('successAjout')}}</h3>
-        </div>
+    <div class="alert alert-success">
+        <h3>{{session()->get('successAjout')}}</h3>
+    </div>
     @endif
     @if(session()->has("successModify"))
-        <div class="alert alert-success">
-            <h3>{{session()->get('successModify')}}</h3>
-        </div>
+    <div class="alert alert-success">
+        <h3>{{session()->get('successModify')}}</h3>
+    </div>
     @endif
 
-    <div class="card-deck" >
+    <div class="card-deck">
         @foreach($etablissements as $etablissement)
 
-            <div class="row mb-2">
-                <div class="col-md-6">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250" style="width: 204%">
-                        <div class="card-body d-flex flex-column align-items-start">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250" style="width: 204%">
+                    <div class="card-body d-flex flex-column align-items-start">
 
-                            <h3 class="mb-0">
-                                <a class="text-dark" href="#">{{$etablissement->ETABNom}}</a>
-                            </h3>
-                            <div class="mb-1 text-muted"> Numero RNE : {{$etablissement->getKey()}}</div>
-                            <p class="card-text mb-auto">Adresse Mail de l'etablissement : {{$etablissement->ETABMail}}</p>
+                        <h3 class="mb-0">
+                            <a class="text-dark" href="#">{{$etablissement->ETABNom}}</a>
+                        </h3>
+                        <div class="mb-1 text-muted"> Numero RNE : {{$etablissement->getKey()}}</div>
+                        <p class="card-text mb-auto">Adresse Mail de l'etablissement : {{$etablissement->ETABMail}}</p>
 
-                            <td><a href="{{route('goEtablissementAffichage', ['etablissement'=>$etablissement->ETABCode])}}" >Voir plus </a></td>
+                        <td><a href="{{route('goEtablissementAffichage', ['etablissement'=>$etablissement->ETABCode])}}">Voir plus </a></td>
 
-                            <td><br><a class="btn btn-primary class=pull-left" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissement->ETABCode])}}">Modifier</a></td>
+                        <td><br><a class="btn btn-primary class=pull-left" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissement->ETABCode])}}">Modifier</a></td>
 
-                            <td><a  href="#" class="btn btn-danger class=pull-right" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer cet etablissement ?')){document.getElementById('{{$etablissement->ETABCode}}').submit() }" >Supprimer</a>
-                                <form id="{{$etablissement->ETABCode}}" action="{{route('goEtablissementSupprimer',['etablissement'=>$etablissement->ETABCode])}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="_method" value="delete">
-                                </form>
+                        <td><a href="#" class="btn btn-danger class=pull-right" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer cet etablissement ?')){document.getElementById('{{$etablissement->ETABCode}}').submit() }">Supprimer</a>
+                            <form id="{{$etablissement->ETABCode}}" action="{{route('goEtablissementSupprimer',['etablissement'=>$etablissement->ETABCode])}}" method="post">
+                                @csrf
+                                <input type="hidden" name="_method" value="delete">
+                            </form>
 
 
 
-                        </div>
-
-                        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="/Image/imageacadlyon.png" width="120" height="120" alt="/Image/imageacadlyon.png">
                     </div>
+
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="/Image/imageacadlyon.png" width="120" height="120" alt="/Image/imageacadlyon.png">
                 </div>
             </div>
+        </div>
         @endforeach
 
     </div>
 </div>
 </div>
-
-
-
