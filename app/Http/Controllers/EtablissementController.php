@@ -180,8 +180,16 @@ class EtablissementController extends Controller
         return view('etablissementSearch')->with('etablissement', $etablissements);
     }
 
-    public function affiche(){
-        return view("etablissementAffichage");
+    public function affiche($id2){
+
+        $territoires= Territoire::all();
+        $types = Type::all();
+        $specialites  = Specialite::all();
+        $villes = Ville::all();
+
+        $etablissement = Etablissement::find($id2);
+
+        return view("etablissementAffichage", compact("etablissement",'territoires','types','specialites','villes'));
     }
 
     public function  show2(Request $request){
@@ -200,6 +208,23 @@ class EtablissementController extends Controller
             //return view("etablissement", ["etablissements" => $etablissements]);
         }
 
-        return view("etablissement3", ["etablissements" => $etablissements]);
+        return view("etablissement4", ["etablissements" => $etablissements]);
     }
+
+   /* public function search(){
+        $q = request()->input('q');
+        $etablissements = Etablissement::where('ETABCode','like',"%$q%")
+            ->orWhere('ETABNom','like',"%$q%")
+            ->orWhere('ETABMail','like',"%$q%")
+            ->orWhere('ETABChef','like',"%$q%")
+            ->orWhere('ETABAdresse','like',"%$q%")
+            ->orWhere('ETABTel','like',"%$q%")
+            ->orWhere('TERRCode','like',"%$q%")
+            ->orWhere('TYPCode','like',"%$q%")
+            ->orWhere('SPECode','like',"%$q%")
+            ->orWhere('VILCode','like',"%$q%")
+            ->get();
+
+        return view('etablissementSearch')->with('etablissement', $etablissements);
+    }*/
 }
