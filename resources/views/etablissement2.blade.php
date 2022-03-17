@@ -88,6 +88,7 @@
                             </form>
                         <a href="{{route('goEtablissementAffichage')}}">Continue reading</a>
                     </div>
+
                     <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="/Image/imageacadlyon.png" width="120" height="120" alt="/Image/imageacadlyon.png">
                 </div>
             </div>
