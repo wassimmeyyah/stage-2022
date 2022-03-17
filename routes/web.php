@@ -36,7 +36,7 @@ Route::put('/etablissement/{etablissement}',[EtablissementController::class, 'up
 
 Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 'delete'])->name("goEtablissementSupprimer");
 
-Route::get('/affichage', [EtablissementController::class, 'affiche'])->name("goEtablissementAffichage");
+Route::get('/etablissement/{etablissement}/affichage', [EtablissementController::class, 'affiche'])->name("goEtablissementAffichage");
 
 Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
 

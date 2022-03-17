@@ -180,8 +180,16 @@ class EtablissementController extends Controller
         return view('etablissementSearch')->with('etablissement', $etablissements);
     }
 
-    public function affiche(){
-        return view("etablissementAffichage");
+    public function affiche($id2){
+
+        $territoires= Territoire::all();
+        $types = Type::all();
+        $specialites  = Specialite::all();
+        $villes = Ville::all();
+
+        $etablissement = Etablissement::find($id2);
+
+        return view("etablissementAffichage", compact("etablissement",'territoires','types','specialites','villes'));
     }
 
     public function  show2(Request $request){
