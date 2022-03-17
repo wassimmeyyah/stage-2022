@@ -200,6 +200,6 @@ class EtablissementController extends Controller
             //return view("etablissement", ["etablissements" => $etablissements]);
         }
 
-        return view("etablissement2", ["etablissements" => $etablissements]);
+        return view("etablissement3", ["etablissements" => $etablissements]);
     }
 }
