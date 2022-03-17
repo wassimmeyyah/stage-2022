@@ -208,6 +208,23 @@ class EtablissementController extends Controller
             //return view("etablissement", ["etablissements" => $etablissements]);
         }
 
-        return view("etablissement3", ["etablissements" => $etablissements]);
+        return view("etablissement4", ["etablissements" => $etablissements]);
     }
+
+   /* public function search(){
+        $q = request()->input('q');
+        $etablissements = Etablissement::where('ETABCode','like',"%$q%")
+            ->orWhere('ETABNom','like',"%$q%")
+            ->orWhere('ETABMail','like',"%$q%")
+            ->orWhere('ETABChef','like',"%$q%")
+            ->orWhere('ETABAdresse','like',"%$q%")
+            ->orWhere('ETABTel','like',"%$q%")
+            ->orWhere('TERRCode','like',"%$q%")
+            ->orWhere('TYPCode','like',"%$q%")
+            ->orWhere('SPECode','like',"%$q%")
+            ->orWhere('VILCode','like',"%$q%")
+            ->get();
+
+        return view('etablissementSearch')->with('etablissement', $etablissements);
+    }*/
 }
