@@ -62,26 +62,22 @@
     </div>
 @endif
 
-    <div class="card-body">
-        <div id="table" class="table-editable bg-light">
-            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-                <thead>
-                <tr>
-                    <th class="text-center"> Identifiant du porteur</th>
-                    <th class="text-center"> Nom du porteur</th>
-                    <th class="text-center"> Adresse mail du porteur</th>
+    <div class="card-deck">
+        @foreach($porteurs as $porteur)
 
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250" style="width: 204%">
+                        <div class="card-body d-flex flex-column align-items-start">
 
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($porteurs as $porteur)
-                    <tr>
-                        <td class="pt-3-half" > {{$porteur->getKey()}} </td>
-                        <td class="pt-3-half" >{{$porteur->PORTNom}}</td>
-                        <td class="pt-3-half" >{{$porteur->PORTMail}}</td>
-                        <td><a class="btn btn-primary" type="button" href="{{route('goPorteurModifier', ['porteur'=>$porteur->PORTCode])}}">
+                            <h3 class="mb-0">
+                                <a class="text-dark" href="#">{{$porteur->PORTNom}}</a>
+                            </h3>
+                            <div class="mb-1 text-muted"> Numero de telephone : {{$porteur->PORTTel}}</div>
+                            <p class="card-text mb-auto">Adresse Mail : {{$porteur->PORTMail}}</p>
+
+                            <td><a href="#">Voir plus </a></td>
+                        <td><br><a class="btn btn-primary" type="button" href="{{route('goPorteurModifier', ['porteur'=>$porteur->PORTCode])}}">
                                     Modifier
 
                                 </a></td>
@@ -96,15 +92,11 @@
                             </form>
 
                             </td>
-                    </tr>
-                @endforeach
-                </tbody>
-
-            </table>
-        </div>
-    </div>
-</div>
-</div>
+                        </div>
+                    </div>
+                </div>
 
 
+                </div>
 
+@endforeach

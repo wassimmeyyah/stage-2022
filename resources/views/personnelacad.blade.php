@@ -61,34 +61,24 @@
     </div>
 @endif
 
-    <div class="card-body">
-        <div id="table" class="table-editable bg-light">
-            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-                <thead>
-                <tr>
-                    <th class="text-center"> Identifiant de la personne</th>
-                    <th class="text-center"> Nom de la personne</th>
-                    <th class="text-center"> Prénom de la personne</th>
-                    <th class="text-center"> Adresse mail de la personne</th>
-                    <th class="text-center"> Discipline enseignée par la personne</th>
-                    <th class="text-center"> Adresse de la personne</th>
-                    <th class="text-center"> Téléphone de la personne</th>
-                    <th class="text-center"> Etablissement de la personne</th>
+    <div class="card-deck">
+        @foreach($personnelacads as $personnelacad)
 
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($personnelacads as $personnelacad)
-                    <tr>
-                        <td class="pt-3-half" > {{$personnelacad->getKey()}} </td>
-                        <td class="pt-3-half" >{{$personnelacad->PANom}}</td>
-                        <td class="pt-3-half" >{{$personnelacad->PAPrenom}}</td>
-                        <td class="pt-3-half" >{{$personnelacad->PAMail}}</td>
-                        <td class="pt-3-half" >{{$personnelacad->PADiscipline}}</td>
-                        <td class="pt-3-half" >{{$personnelacad->PAAdressePerso}}</td>
-                        <td class="pt-3-half" >{{$personnelacad->PATel}}</td>
-                        <td class="pt-3-half" >{{$personnelacad->ETABCode}}</td>
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250" style="width: 204%">
+                        <div class="card-body d-flex flex-column align-items-start">
+
+                            <h3 class="mb-0">
+                                <a class="text-dark" href="#">{{$personnelacad->PANom}}</a>
+                            </h3>
+                            <div class="mb-1 text-muted"> {{$personnelacad->PAPrenom}}</div>
+                            <p class="card-text mb-auto">Adresse Mail : {{$personnelacad->PAMail}}</p>
+                            <div class="mb-1 text-muted"> {{$personnelacad->PADiscipline}}</div>
+                            <p class="card-text mb-auto">{{$personnelacad->PATel}}</p>
+
+                            <td><a href="#">Voir plus </a></td>
+
                         <td><a class="btn btn-primary" type="button" href="{{route('goPersonnelacadModifier', ['personnelacad'=>$personnelacad->PACode])}}">
                                     Modifier
 
@@ -104,15 +94,14 @@
                             </form>
 
                             </td>
-                    </tr>
-                @endforeach
-                </tbody>
+                        </div>
+                    </div>
+                </div>
 
-            </table>
-        </div>
-    </div>
-</div>
-</div>
+
+            </div>
+
+@endforeach
 
 
 
