@@ -214,8 +214,8 @@ class EtablissementController extends Controller
     public function filtre(){
         $q = request()->input('q');
         $p = request()->input('p');
-        $etablissements = Etablissement::Where('TERRCode','=',"$q")
-            ->Where('TYPCode','=',"$p")
+        $etablissements = Etablissement::Where('TERRCode','LIKE',"%$q%")
+            ->Where('TYPCode','LIKE',"%$p%")
             ->get();
 
         return view('etablissementFiltre')->with('etablissement', $etablissements);

@@ -8,7 +8,7 @@
     <div class="form-group mr-3 d-flex justify-content-end p-2">
         <label for="filtreType">Filtrer par région </label>
         <select name="q" id="filtreType" wire:model="filtreType" style="min-width:110px;">
-            <option name="q" class="form-control" value="*"></option>
+            <option name="q" class="form-control" value=""></option>
             <option name="q" class="form-control" value="RHO">Rhône</option>
             <option name="q" class="form-control" value="LOI">Loire</option>
             <option name="q" class="form-control" value="AIN">Ain</option>
