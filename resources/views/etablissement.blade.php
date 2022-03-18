@@ -40,7 +40,6 @@
         <p align="center">
             <a class="btn btn-primary " type="button" href="{{route('goEtablissementAjouter')}}">
                 Ajouter un etablissement
-
             </a>
         </p>
 

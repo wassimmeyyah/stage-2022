@@ -38,9 +38,9 @@ Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 
 
 Route::get('/etablissement/{etablissement}/affichage', [EtablissementController::class, 'affiche'])->name("goEtablissementAffichage");
 
-Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
+Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissementSearch");
 
-Route::get('/filtre1', [EtablissementController::class, 'filtre'])->name("goEtablissmementFiltre");
+Route::get('/filtre1', [EtablissementController::class, 'filtre'])->name("goEtablissementFiltre");
 
 
 

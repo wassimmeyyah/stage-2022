@@ -214,16 +214,8 @@ class EtablissementController extends Controller
     public function filtre(){
         $q = request()->input('q');
         $p = request()->input('p');
-        $etablissements = Etablissement::where('ETABCode')
-            ->orWhere('ETABNom')
-            ->orWhere('ETABMail')
-            ->orWhere('ETABChef')
-            ->orWhere('ETABAdresse')
-            ->orWhere('ETABTel')
-            ->orWhere('TERRCode','like',"%$q%")
-            ->orWhere('TYPCode','like',"%$p%")
-            ->orWhere('SPECode')
-            ->orWhere('VILCode')
+        $etablissements = Etablissement::Where('TERRCode','=',"$q")
+            ->Where('TYPCode','=',"$p")
             ->get();
 
         return view('etablissementFiltre')->with('etablissement', $etablissements);
