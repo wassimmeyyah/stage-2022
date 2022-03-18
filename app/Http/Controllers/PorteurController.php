@@ -133,4 +133,6 @@ class PorteurController extends Controller
 
         return view('porteurSearch')->with('porteur', $porteurs);
     }
+
+    // Nordine 
 }
