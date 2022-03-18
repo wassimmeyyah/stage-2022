@@ -70,8 +70,7 @@ Route::post('/personnelacad/ajouter',[PersonnelacadController::class, 'store'])-
 
 Route::get('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'edit'])->name("goPersonnelacadModifier");
 
-Route::put('/personnelacad/{
-personnelacad}',[PersonnelacadController::class, 'update'])->name("goPersonnelacadModifier");
+Route::put('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'update'])->name("goPersonnelacadModifier");
 
 Route::delete('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'delete'])->name("goPersonnelacadSupprimer");
 
