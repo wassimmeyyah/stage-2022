@@ -49,31 +49,7 @@
 
 
 
-    <div class="dropdown d-flex justify-content-end">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Région
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Rhone</a>
-            <a class="dropdown-item" href="#">Loire</a>
-            <a class="dropdown-item" href="#">Ain</a>
-        </div>
-
-        <div class="dropdown d-flex justify-content-end">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Type
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">ECL</a>
-                <a class="dropdown-item" href="#">CLG</a>
-                <a class="dropdown-item" href="#">LYC</a>
-            </div>
-
-            <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i></button>
-            </div>
-        </div>
-    </div>
+    @include('partials.filtre')
 
 
 
