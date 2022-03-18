@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css%22%3E
 </head>
 
-<form action="{{route('goEtablissmementFiltre')}}" class=" d-flex mr-3">
-    <div class="form-group mr-3 d-flex justify-content-end p-2" >
-        <label for="filtreType" >Filtrer par région </label>
-        <select id="filtreType" wire:model="filtreType" style="min-width:110px;">
-            <option name="q" class="form-control" value="{{request()->q ?? ''}}"></option>
-            <option name="q" class="form-control" value="{{request()->q ?? 'RHO'}}">RHO</option>
-            <option name="q" class="form-control" value="{{request()->q ?? 'LOI'}}">LOI</option>
-            <option name="q" class="form-control" value="{{request()->q ?? 'AIN'}}">AIN</option>
+<form action="{{route('goEtablissementFiltre')}}" class=" d-flex mr-3">
+    <div class="form-group mr-3 d-flex justify-content-end p-2">
+        <label for="filtreType">Filtrer par région </label>
+        <select name="q" id="filtreType" wire:model="filtreType" style="min-width:110px;">
+            <option name="q" class="form-control" value="*"></option>
+            <option name="q" class="form-control" value="RHO">Rhône</option>
+            <option name="q" class="form-control" value="LOI">Loire</option>
+            <option name="q" class="form-control" value="AIN">Ain</option>
         </select>
 
+
     </div>
-    <div class="form-group mr-3 d-flex justify-content-end p-2" >
+    <div class="form-group mr-3 d-flex justify-content-end p-2">
         <label for="filtreRegion">Filtrer par type </label>
-        <select id="filtreRegion" wire:model="filtreRegion" style="min-width:110px;">
-            <option name="p" class="form-control" value="{{request()->p ?? ''}}"></option>
-            <option name="p" class="form-control" value="{{request()->p ?? 'ECL'}}">ECL</option>
-            <option name="p" class="form-control" value="{{request()->p ?? 'CLG'}}">CLG</option>
-            <option name="p" class="form-control" value="{{request()->p ?? 'LYC'}}">LYC</option>
+        <select name ="p" id="filtreRegion" wire:model="filtreRegion" style="min-width:110px;">
+            <option name="p" class="form-control" value=""></option>
+            <option name="p" class="form-control" value="ECL">Ecole</option>
+            <option name="p" class="form-control" value="CLG">College</option>
+            <option name="p" class="form-control" value="LYC">Lycée</option>
         </select>
     </div>
 
-    <div class="d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i></button>
-    </div>
-</form>
+    <button type="submit" class="btn btn-primary"><i class="bi bi-funnel"></i></button>
+
+
+
+    </form>

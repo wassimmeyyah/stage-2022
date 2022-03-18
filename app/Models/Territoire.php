@@ -12,6 +12,22 @@ class Territoire extends Model
     protected $table='territoire';
     protected $primaryKey ='TERRCode';
 
+    /**
+     * @return string
+     */
+    public function getPrimaryKey(): string
+    {
+        return $this->primaryKey;
+    }
+
+    /**
+     * @param string $primaryKey
+     */
+    public function setPrimaryKey(string $primaryKey): void
+    {
+        $this->primaryKey = $primaryKey;
+    }
+
 
     protected $keyType = 'string';
     public $incrementing ='false';
