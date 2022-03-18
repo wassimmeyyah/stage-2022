@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<form>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css%22%3E
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
 <form action="{{route('goEtablissementFiltre')}}" class=" d-flex mr-3">
@@ -31,3 +31,4 @@
 
 
 </form>
+
