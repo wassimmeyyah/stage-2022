@@ -40,6 +40,9 @@ Route::get('/etablissement/{etablissement}/affichage', [EtablissementController:
 
 Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissmementSearch");
 
+Route::get('/filtre1', [EtablissementController::class, 'filtre'])->name("goEtablissmementFiltre");
+
+
 
 
 Route::get('/porteur',[PorteurController::class, 'show'])->name("goPorteur");

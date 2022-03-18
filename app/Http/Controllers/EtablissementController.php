@@ -211,20 +211,21 @@ class EtablissementController extends Controller
         return view("etablissement4", ["etablissements" => $etablissements]);
     }
 
-   /* public function search(){
+    public function filtre(){
         $q = request()->input('q');
-        $etablissements = Etablissement::where('ETABCode','like',"%$q%")
-            ->orWhere('ETABNom','like',"%$q%")
-            ->orWhere('ETABMail','like',"%$q%")
-            ->orWhere('ETABChef','like',"%$q%")
-            ->orWhere('ETABAdresse','like',"%$q%")
-            ->orWhere('ETABTel','like',"%$q%")
+        $p = request()->input('p');
+        $etablissements = Etablissement::where('ETABCode')
+            ->orWhere('ETABNom')
+            ->orWhere('ETABMail')
+            ->orWhere('ETABChef')
+            ->orWhere('ETABAdresse')
+            ->orWhere('ETABTel')
             ->orWhere('TERRCode','like',"%$q%")
-            ->orWhere('TYPCode','like',"%$q%")
-            ->orWhere('SPECode','like',"%$q%")
-            ->orWhere('VILCode','like',"%$q%")
+            ->orWhere('TYPCode','like',"%$p%")
+            ->orWhere('SPECode')
+            ->orWhere('VILCode')
             ->get();
 
-        return view('etablissementSearch')->with('etablissement', $etablissements);
-    }*/
+        return view('etablissementFiltre')->with('etablissement', $etablissements);
+    }
 }
