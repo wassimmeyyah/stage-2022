@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- si on veut lier à un fichier css -->
+    <link rel="stylesheet" type="text/css" href="../../html/css/etablissement.css" />
+
+</head>
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-3 mb-4 font-italic border-bottom">
+                Etablissement : {{$etablissement->ETABNom}}
+            </h3>
+
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{$etablissement->ETABMail}}</h2>
+                <p class="blog-post-meta">{{$etablissement->ETABTel}}<a href="#">Appeler</a></p>
+                <p>Située dans la zone A, l'Académie de Lyon accueille plus de 323 000 élèves pour une population totale de 3 293 813 habitants.
+                    Elle totalise 3 365 établissements scolaires ce qui la place au 11ème rang des académies françaises. Elle compte également 419 établissements d'enseignement professionel et post-bac.
+                    Pour plus d'informations, vous pouvez consulter le site officiel de l'académie sur http://www.ac-lyon.fr
+
+                </p>
+
+                <p>L'etablissement {{$etablissement->ETABNom}} se situe dans la région de {{$etablissement->TERRCode}} . Il s'agit d'un etablissement de type {{$etablissement->TYPCode}} et de spécialité {{$etablissement->SPECode}}. Son chef d'etablissement est {{$etablissement->ETABChef}}. </p>
+                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="/Image/imageacadlyon.png" width="120" height="120" alt="/Image/imageacadlyon.png">
+                <hr>
+
+            </div>
+        </div>
+    </div>
+</main>

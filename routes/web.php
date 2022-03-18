@@ -42,6 +42,8 @@ Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtab
 
 Route::get('/filtre1', [EtablissementController::class, 'filtre'])->name("goEtablissementFiltre");
 
+Route::get('/etablissement/{etablissement}/telechargement1-pdf', [EtablissementController::class, 'telechargerPdf'])->name("goEtablissementPDF");
+
 
 
 

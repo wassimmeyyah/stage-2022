@@ -9,6 +9,7 @@ use App\Models\Type;
 use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class EtablissementController extends Controller
 {
@@ -221,5 +222,16 @@ class EtablissementController extends Controller
         return view('etablissementFiltre')->with('etablissement', $etablissements);
     }
 
-    // Wassim
+    public function telechargerPdf($id3){
+
+        $territoires= Territoire::all();
+        $types = Type::all();
+        $specialites  = Specialite::all();
+        $villes = Ville::all();
+
+        $etablissement = Etablissement::findOrFail($id3);
+
+        $pdf = PDF::loadView('telechargement1',compact('etablissement','territoires','types','specialites','villes'));
+        return $pdf->download('telechargement1.pdf');
+    }
 }
