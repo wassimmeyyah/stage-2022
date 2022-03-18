@@ -220,4 +220,6 @@ class EtablissementController extends Controller
 
         return view('etablissementFiltre')->with('etablissement', $etablissements);
     }
+
+    // Wassim
 }
