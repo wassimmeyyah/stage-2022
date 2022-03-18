@@ -70,7 +70,7 @@
                 <p>L'etablissement {{$etablissement->ETABNom}} se situe dans la région de {{$etablissement->TERRCode}} . Il s'agit d'un etablissement de type {{$etablissement->TYPCode}} et de spécialité {{$etablissement->SPECode}}. Son chef d'etablissement est {{$etablissement->ETABChef}}. </p>
                 <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="/Image/imageacadlyon.png" width="120" height="120" alt="/Image/imageacadlyon.png">
                 <hr>
-
+                <a type="submit" id="id3" class="btn btn-secondary btn-sm" href="{{route("goEtablissementPDF", ['etablissement'=>$etablissement->ETABCode])}}">Telecharger en PDF</a>
             </div>
         </div>
     </div>
