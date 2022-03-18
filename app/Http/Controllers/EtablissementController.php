@@ -146,7 +146,7 @@ class EtablissementController extends Controller
             'VILCode' => $_POST['VILCode']
         ]);
 
-        return redirect('/etablissement')->with("successModify", "L'etablissement' '$request->ETABNom' a été mise à jour avec succès");
+        return redirect('/etablissement')->with("successModify", "L'etablissement' '$request->ETABNom' a été mis à jour avec succès");
     }
 
     /**

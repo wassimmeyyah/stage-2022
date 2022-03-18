@@ -95,10 +95,6 @@ class PorteurController extends Controller
      */
     public function update(Request $request, porteur $porteur)
     {
-
-
-
-
         $porteur->delete($porteur);
 
         $porteur->insert([
@@ -109,7 +105,7 @@ class PorteurController extends Controller
             'ETABCode' => $_POST['ETABCode']
         ]);
 
-        return redirect('/porteur')->with("successModify", "Le porteur' '$request->PORTNom' a été mise à jour avec succès");
+        return redirect('/porteur')->with("successModify", "Le porteur' '$request->PORTNom' a été mis à jour avec succès");
     }
 
     /**
