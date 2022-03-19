@@ -76,7 +76,7 @@
                             <div class="mb-1 text-muted"> Numero de telephone : {{$porteur->PORTTel}}</div>
                             <p class="card-text mb-auto">Adresse Mail : {{$porteur->PORTMail}}</p>
 
-                            <td><a href="#">Voir plus </a></td>
+                            <td><a href="{{route('goPorteurAffichage', ['porteur'=>$porteur->PORTCode])}}">Voir plus </a></td>
                         <td><br><a class="btn btn-primary" type="button" href="{{route('goPorteurModifier', ['porteur'=>$porteur->PORTCode])}}">
                                     Modifier
 

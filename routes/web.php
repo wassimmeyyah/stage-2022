@@ -59,7 +59,11 @@ Route::put('/porteur/{porteur}',[PorteurController::class, 'update'])->name("goP
 
 Route::delete('/porteur/{porteur}',[PorteurController::class, 'delete'])->name("goPorteurSupprimer");
 
+Route::get('/porteur/{porteur}/affichage', [PorteurController::class, 'affiche'])->name("goPorteurAffichage");
+
 Route::get('search2', [PorteurController::class, 'search'])->name("goPorteurSearch");
+
+Route::get('/porteur/{porteur}/telechargement2-pdf', [PorteurController::class, 'telechargerPdf'])->name("goPorteurPDF");
 
 
 
@@ -76,6 +80,10 @@ Route::put('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'up
 
 Route::delete('/personnelacad/{personnelacad}',[PersonnelacadController::class, 'delete'])->name("goPersonnelacadSupprimer");
 
+Route::get('/personnelacad/{personnelacad}/affichage', [PersonnelacadController::class, 'affiche'])->name("goPersonnelacadAffichage");
+
 Route::get('search3', [PersonnelacadController::class, 'search'])->name("goPersonnelacadSearch");
+
+Route::get('/personnelacad/{personnelacad}/telechargement2-pdf', [PersonnelacadController::class, 'telechargerPdf'])->name("goPersonnelacadPDF");
 
 //Route::get('/experimentation',[employeController::class, 'show'])->name("goExperimentation");

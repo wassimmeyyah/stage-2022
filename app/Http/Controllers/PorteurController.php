@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Porteur;
+use App\Models\Etablissement;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class PorteurController extends Controller
 {
@@ -134,5 +137,26 @@ class PorteurController extends Controller
         return view('porteurSearch')->with('porteur', $porteurs);
     }
 
-    // Nordine 
+    public function affiche($id2){
+
+        $etablissements = Etablissement::all();
+
+
+        $porteur = Porteur::find($id2);
+
+        return view("porteurAffichage", compact("etablissements", "porteur"));
+    }
+
+
+    public function telechargerPdf($id3){
+
+        $etablissements= Etablissement::all();
+
+        $porteur = Porteur::findOrFail($id3);
+
+        $pdf = PDF::loadView('telechargement2',compact('porteur'));
+        return $pdf->download('telechargement2.pdf');
+    }
+
+    // Nordine
 }

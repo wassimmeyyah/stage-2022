@@ -77,7 +77,7 @@
                             <div class="mb-1 text-muted"> {{$personnelacad->PADiscipline}}</div>
                             <p class="card-text mb-auto">{{$personnelacad->PATel}}</p>
 
-                            <td><a href="#">Voir plus </a></td>
+                            <td><a href="{{route('goPersonnelacadAffichage', ['personnelacad'=>$personnelacad->PACode])}}">Voir plus </a></td>
 
                         <td><a class="btn btn-primary" type="button" href="{{route('goPersonnelacadModifier', ['personnelacad'=>$personnelacad->PACode])}}">
                                     Modifier
