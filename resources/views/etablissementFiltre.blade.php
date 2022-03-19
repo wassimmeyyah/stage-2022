@@ -64,50 +64,42 @@
         <h6>{{$etablissement->count()}} résultat(s) pour la recherche </h6>
     @endif
 
-    <div class="card-body">
-        <div id="table" class="table-editable bg-light">
-            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-                <thead>
-                <tr>
-                    <th class="text-center"> Identifiant de l'établissement</th>
-                    <th class="text-center"> Nom de l'établissement</th>
-                    <th class="text-center"> Adresse mail de l'établissement</th>
-                    <th class="text-center"> Région de l'établissement</th>
-                    <th class="text-center"> Type de l'établissement</th>
+    <div class="card-deck">
+        @foreach($etablissement as $etablissements)
 
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($etablissement as $etablissements)
-                    <tr>
-                        <td class="pt-3-half" > {{$etablissements->getKey()}} </td>
-                        <td class="pt-3-half" >{{$etablissements->ETABNom}}</td>
-                        <td class="pt-3-half" >{{$etablissements->ETABMail}}</td>
-                        <td class="pt-3-half" >{{$etablissements->TERRCode}}</td>
-                        <td class="pt-3-half" >{{$etablissements->TYPCode}}</td>
-                        <td><a class="btn btn-primary" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissements->ETABCode])}}">
-                                Modifier
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250" style="width: 204%">
+                        <div class="card-body d-flex flex-column align-items-start">
 
-                            </a></td>
-                        <td>
-                            <a  href="#" class="btn btn-danger" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer cet etablissement ?')){document.getElementById('{{$etablissements->ETABCode}}').submit() }" >
-                                Supprimer
+                            <h3 class="mb-0">
+                                <a class="text-dark" href="#">{{$etablissements->ETABNom}}</a>
+                            </h3>
+                            <div class="mb-1 text-muted"> Numero RNE : {{$etablissements->getKey()}}</div>
+                            <p class="card-text mb-auto">Adresse Mail de l'etablissement : {{$etablissements->ETABMail}}</p>
 
-                            </a>
-                            <form id="{{$etablissements->ETABCode}}" action="{{route('goEtablissementSupprimer',['etablissement'=>$etablissements->ETABCode])}}" method="post">
-                                @csrf
-                                <input type="hidden" name="_method" value="delete">
-                            </form>
+                            <td><a href="{{route('goEtablissementAffichage', ['etablissement'=>$etablissements->ETABCode])}}">Voir plus </a></td>
 
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
+                            <td><br><a class="btn btn-primary class=pull-left" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissements->ETABCode])}}">Modifier</a></td>
 
-            </table>
-        </div>
+                            <td><a href="#" class="btn btn-danger class=pull-right" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer cet etablissement ?')){document.getElementById('{{$etablissements->ETABCode}}').submit() }">Supprimer</a>
+                                <form id="{{$etablissements->ETABCode}}" action="{{route('goEtablissementSupprimer',['etablissement'=>$etablissements->ETABCode])}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="delete">
+                                </form>
+
+
+
+                        </div>
+
+                        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="/Image/imageacadlyon.png" width="120" height="120" alt="/Image/imageacadlyon.png">
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
     </div>
+    <a type="button" class="btn btn-secondary " href="{{route('goEtablissement')}}">Revenir aux etablissements</a><br>
 </div>
 </div>
 
