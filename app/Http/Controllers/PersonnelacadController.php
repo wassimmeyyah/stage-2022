@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etablissement;
 use App\Models\Personnelacad;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class PersonnelacadController extends Controller
 {
@@ -146,4 +149,25 @@ class PersonnelacadController extends Controller
 
         return view('personnelacadSearch')->with('personnelacad', $personnelacads);
     }
+    public function affiche($id2){
+
+        $etablissements = Etablissement::all();
+
+
+        $personnelacad = Personnelacad::find($id2);
+
+        return view("personnelacadAffichage", compact("etablissements", "personnelacad"));
+    }
+
+
+    public function telechargerPdf($id3){
+
+        $etablissements= Etablissement::all();
+
+        $personnelacad = Personnelacad::findOrFail($id3);
+
+        $pdf = PDF::loadView('telechargement3',compact('personnelacad'));
+        return $pdf->download('telechargement3.pdf');
+    }
+
 }

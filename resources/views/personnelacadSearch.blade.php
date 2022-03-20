@@ -64,58 +64,52 @@
     @endif
 
 
-    <div class="card-body">
-        <div id="table" class="table-editable bg-light">
-            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-                <thead>
-                <tr>
-                    <th class="text-center"> Identifiant de la personne</th>
-                    <th class="text-center"> Nom de la personne</th>
-                    <th class="text-center"> Prénom de la personne</th>
-                    <th class="text-center"> Adresse mail de la personne</th>
-                    <th class="text-center"> Discipline enseignée par la personne</th>
-                    <th class="text-center"> Adresse de la personne</th>
-                    <th class="text-center"> Téléphone de la personne</th>
-                    <th class="text-center"> Etablissement de la personne</th>
+    <div class="card-deck">
+        @foreach($personnelacad as $personnelacads)
 
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($personnelacad as $personnelacads)
-                    <tr>
-                        <td class="pt-3-half" > {{$personnelacads->getKey()}} </td>
-                        <td class="pt-3-half" >{{$personnelacads->PANom}}</td>
-                        <td class="pt-3-half" >{{$personnelacads->PAPrenom}}</td>
-                        <td class="pt-3-half" >{{$personnelacads->PAMail}}</td>
-                        <td class="pt-3-half" >{{$personnelacads->PADiscipline}}</td>
-                        <td class="pt-3-half" >{{$personnelacads->PAAdressePerso}}</td>
-                        <td class="pt-3-half" >{{$personnelacads->PATel}}</td>
-                        <td class="pt-3-half" >{{$personnelacads->ETABCode}}</td>
-                        <td><a class="btn btn-primary" type="button" href="{{route('goPersonnelacadModifier', ['personnelacad'=>$personnelacads->PACode])}}">
-                                Modifier
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250" style="width: 204%">
+                        <div class="card-body d-flex flex-column align-items-start">
 
-                            </a></td>
-                        <td>
-                            <a  href="#" class="btn btn-danger" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer ce personnelacad ?')){document.getElementById('{{$personnelacads->PACode}}').submit() }" >
-                                Supprimer
+                            <h3 class="mb-0">
+                                <a class="text-dark" href="#">{{$personnelacads->PANom}}</a>
+                            </h3>
+                            <div class="mb-1 text-muted"> {{$personnelacads->PAPrenom}}</div>
+                            <p class="card-text mb-auto">Adresse Mail : {{$personnelacads->PAMail}}</p>
+                            <div class="mb-1 text-muted"> {{$personnelacads->PADiscipline}}</div>
+                            <p class="card-text mb-auto">{{$personnelacads->PATel}}</p>
 
-                            </a>
-                            <form id="{{$personnelacads->PACode}}" action="{{route('goPersonnelacadSupprimer',['personnelacad'=>$personnelacads->PACode])}}" method="post">
-                                @csrf
-                                <input type="hidden" name="_method" value="delete">
-                            </form>
+                            <td><a href="{{route('goPersonnelacadAffichage', ['personnelacad'=>$personnelacads->PACode])}}">Voir plus </a></td>
 
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
+                            <td><a class="btn btn-primary" type="button" href="{{route('goPersonnelacadModifier', ['personnelacad'=>$personnelacads->PACode])}}">
+                                    Modifier
 
-            </table>
-        </div>
+                                </a></td>
+                            <td>
+                                <a  href="#" class="btn btn-danger" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer ce personnelacad ?')){document.getElementById('{{$personnelacads->PACode}}').submit() }" >
+                                    Supprimer
+
+                                </a>
+                                <form id="{{$personnelacads->PACode}}" action="{{route('goPersonnelacadSupprimer',['personnelacad'=>$personnelacads->PACode])}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="delete">
+                                </form>
+
+                            </td>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        @endforeach
+
     </div>
 </div>
+<div class="container">
+<a type="button" class="btn btn-secondary " href="{{route('goPersonnelacad')}}">Revenir au personnel</a><br>
 </div>
-
 
 
