@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtablissementController;
 use App\Http\Controllers\PersonnelacadController;
 use App\Http\Controllers\PorteurController;
+use App\Http\Controllers\ExperimentationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,7 +39,7 @@ Route::delete('/etablissement/{etablissement}',[EtablissementController::class, 
 
 Route::get('/etablissement/{etablissement}/affichage', [EtablissementController::class, 'affiche'])->name("goEtablissementAffichage");
 
-Route::get('/search1', [EtablissementController::class, 'search'])->name("goEtablissementSearch");
+Route::get('search', [EtablissementController::class, 'search'])->name("goEtablissementSearch");
 
 Route::get('/filtre1', [EtablissementController::class, 'filtre'])->name("goEtablissementFiltre");
 
@@ -86,4 +87,22 @@ Route::get('search3', [PersonnelacadController::class, 'search'])->name("goPerso
 
 Route::get('/personnelacad/{personnelacad}/telechargement2-pdf', [PersonnelacadController::class, 'telechargerPdf'])->name("goPersonnelacadPDF");
 
-//Route::get('/experimentation',[employeController::class, 'show'])->name("goExperimentation");
+
+
+Route::get('/experimentation',[ExperimentationController::class, 'show'])->name("goExperimentation");
+
+Route::get('/experimentation/ajouter',[ExperimentationController::class, 'create'])->name("goExperimentationAjouter");
+
+Route::post('/experimentation/ajouter',[ExperimentationController::class, 'store'])->name("goExperimentationAjouter");
+
+Route::get('/experimentation/{experimentation}',[ExperimentationController::class, 'edit'])->name("goExperimentationModifier");
+
+Route::put('/experimentation/{experimentation}',[ExperimentationController::class, 'update'])->name("goExperimentationModifier");
+
+Route::delete('/experimentation/{experimentation}',[ExperimentationController::class, 'delete'])->name("goExperimentationSupprimer");
+
+Route::get('/experimentation/{experimentation}/affichage', [ExperimentationController::class, 'affiche'])->name("goExperimentationAffichage");
+
+Route::get('/search1', [ExperimentationController::class, 'search'])->name("goExperimentationSearch");
+
+Route::get('/experimentation/{experimentation}/telechargement4-pdf', [ExperimentationController::class, 'telechargerPdf'])->name("goExperimentationPDF");
