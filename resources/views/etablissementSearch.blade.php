@@ -12,7 +12,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse p-3 mb-2 bg-danger " id="navbarTogglerDemo01">
+        <div class="collapse navbar-collapse  bg-danger " id="navbarTogglerDemo01">
             <a class="navbar-brand text-uppercase text-white " href="{{route('goHome')}}">Accueil</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
@@ -78,15 +78,16 @@
                             <div class="mb-1 text-muted"> Numero RNE : {{$etablissements->getKey()}}</div>
                             <p class="card-text mb-auto">Adresse Mail de l'etablissement : {{$etablissements->ETABMail}}</p>
 
-                            <td><a href="{{route('goEtablissementAffichage', ['etablissement'=>$etablissements->ETABCode])}}">Voir plus </a></td>
+                            <td><a href="{{route('goEtablissementAffichage', ['etablissement'=>$etablissements->ETABCode])}}">Voir plus </a></td><br>
 
-                            <td><br><a class="btn btn-primary class=pull-left" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissements->ETABCode])}}">Modifier</a></td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <td><br><a class="btn btn-primary class=pull-left" type="button" href="{{route('goEtablissementModifier', ['etablissement'=>$etablissements->ETABCode])}}">Modifier</a></td>
 
                             <td><a href="#" class="btn btn-danger class=pull-right" type="button" onclick="if(confirm('Voulez-vous vraiment supprimer cet etablissement ?')){document.getElementById('{{$etablissements->ETABCode}}').submit() }">Supprimer</a>
                                 <form id="{{$etablissements->ETABCode}}" action="{{route('goEtablissementSupprimer',['etablissement'=>$etablissements->ETABCode])}}" method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete">
-                                </form>
+                                </form></td></div>
 
 
 
