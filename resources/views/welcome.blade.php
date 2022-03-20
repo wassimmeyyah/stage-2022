@@ -26,7 +26,7 @@
             <div class="card-body">
                 <p class="card-text">
                 <p align="center">
-                    <a class="favorite styled" type="button" href="{{route('goHome')}}">
+                    <a class="favorite styled" type="button" href="{{route('goExperimentation')}}">
                         Les expérimentations
                     </a>
                 </p></p>
