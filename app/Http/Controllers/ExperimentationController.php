@@ -166,6 +166,18 @@ class ExperimentationController extends Controller
 
         return view('experimentationSearch')->with('experimentation', $experimentations);
     }
+    public function recherche(){
+        $q = request()->input('q');
+        $experimentations = Experimentation::where('EXPCode','like',"%$q%")
+            ->orWhere('EXPTitre','like',"%$q%")
+            ->orWhere('ETABCode','like',"%$q%")
+            ->get();
+
+
+
+
+        return view('experimentationSearch2')->with('experimentation', $experimentations);
+    }
 
     public function affiche($id2){
 
