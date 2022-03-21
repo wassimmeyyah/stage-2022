@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EtablissementController;
+use App\Http\Controllers\PersonnelacadController;
+use App\Http\Controllers\PorteurController;
+use App\Http\Controllers\ExperimentationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\EtablissementController;
-use App\Http\Controllers\PersonnelacadController;
-use App\Http\Controllers\PorteurController;
-use App\Http\Controllers\ExperimentationController;
-
 Route::get('/', function () {
     return view('welcome');
 })->name("goHome");
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 Route::get('/etablissement',[EtablissementController::class, 'show'])->name("goEtablissement");
 
