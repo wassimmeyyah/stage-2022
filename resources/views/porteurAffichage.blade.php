@@ -18,7 +18,7 @@
             <a class="navbar-brand text-uppercase text-white " href="{{route('goHome')}}">Accueil</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link  text-white " href="{{route('goExperimentation')}}">Les experimentations</a>
+                    <a class="nav-link  text-white " href="{{route('goExperimentation2')}}">Les experimentations</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-white " href="{{route('goEtablissement')}}">Les etablissements</a>

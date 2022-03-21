@@ -89,6 +89,8 @@ Route::get('/personnelacad/{personnelacad}/telechargement2-pdf', [PersonnelacadC
 
 
 
+Route::get('/experimentation2', function () {return view('experimentationRecherche');})->name("goExperimentation2");
+
 Route::get('/experimentation',[ExperimentationController::class, 'show'])->name("goExperimentation");
 
 Route::get('/experimentation/ajouter',[ExperimentationController::class, 'create'])->name("goExperimentationAjouter");
@@ -103,6 +105,8 @@ Route::delete('/experimentation/{experimentation}',[ExperimentationController::c
 
 Route::get('/experimentation/{experimentation}/affichage', [ExperimentationController::class, 'affiche'])->name("goExperimentationAffichage");
 
-Route::get('/search1', [ExperimentationController::class, 'search'])->name("goExperimentationSearch");
+Route::get('/search4', [ExperimentationController::class, 'search'])->name("goExperimentationSearch");
+
+Route::get('/recherche', [ExperimentationController::class, 'recherche'])->name("goExperimentationRecherche");
 
 Route::get('/experimentation/{experimentation}/telechargement4-pdf', [ExperimentationController::class, 'telechargerPdf'])->name("goExperimentationPDF");

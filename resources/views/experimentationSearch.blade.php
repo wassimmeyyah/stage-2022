@@ -16,7 +16,7 @@
             <a class="navbar-brand text-uppercase text-white " href="{{route('goHome')}}">Accueil</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link  text-white " href="{{route('goExperimentation')}}">Les experimentations</a>
+                    <a class="nav-link  text-white " href="{{route('goExperimentation2')}}">Les experimentations</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  text-white " href="{{route('goEtablissement')}}">Les etablissements</a>
@@ -76,7 +76,7 @@
                                 <a class="text-dark" href="#">{{$experimentations->EXPTitre}}</a>
                             </h3>
                             <div class="mb-1 text-muted">Date de debut {{$experimentations->EXPDateDebut}}</div>
-                            <p class="card-text mb-auto" >Lien du drive : </p><a class="card-text mb-auto" href="{{$experimentation->EXPLienDrive}}">{{$experimentation->EXPLienDrive}}</a><br>
+                            <p class="card-text mb-auto" >Lien du drive : </p><a class="card-text mb-auto" href="{{$experimentations->EXPLienDrive}}">{{$experimentations->EXPLienDrive}}</a><br>
 
                             <td><a href="{{route('goExperimentationAffichage', ['experimentation'=>$experimentations->EXPCode])}}">Voir plus </a></td><br>
 
