@@ -7,9 +7,11 @@ use App\Models\Specialite;
 use App\Models\Territoire;
 use App\Models\Type;
 use App\Models\Ville;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;
+use pdf;
 
 class EtablissementController extends Controller
 {
@@ -231,7 +233,7 @@ class EtablissementController extends Controller
 
         $etablissement = Etablissement::findOrFail($id3);
 
-        $pdf = PDF::loadView('telechargement1',compact('etablissement','territoires','types','specialites','villes'));
+        $pdf = FacadePdf::loadView('telechargement1',compact('etablissement','territoires','types','specialites','villes'));
         return $pdf->download('telechargement1.pdf');
     }
 }
