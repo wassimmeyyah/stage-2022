@@ -1,7 +1,18 @@
 require('./bootstrap');
 
-import Alpine from 'alpinejs';
+window.Vue = require('vue').default;
 
-window.Alpine = Alpine;
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Alpine.start();
+import * as VueGoogleMaps from 'vue2-google-maps';
+
+Vue.use(VueGoogleMaps, {
+    load: {
+        key: 'base64:DiEpWxJNNFIwN9Ed0Y3W7w7C2gB/rV6FrYYlkwxQRmM='
+    }
+
+})
+
+const app = new Vue({
+    el: '#app',
+});
