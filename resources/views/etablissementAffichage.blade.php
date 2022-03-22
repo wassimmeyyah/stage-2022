@@ -74,6 +74,21 @@
             </div>
         </div>
     </div>
+    <body>
+        <div class="flex-center position-ref -full-height">
+            <div class="content">
+                <h2>Carte</h2>
+                <div class="map" id="app">
+                    <gmap-map
+                        :center="{lat:45.764043,lng:4.835659}"
+                        :zoom="10"
+                        style="width: 50%; height: 350px;"></gmap-map>
+                </div>
+            </div>
+        </div>
+        <script src="{{mix('js/app.js')}}"></script>
+    </body>
+
 </main>
             </form>
     </div>
