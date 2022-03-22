@@ -236,4 +236,6 @@ class EtablissementController extends Controller
         $pdf = FacadePdf::loadView('telechargement1',compact('etablissement','territoires','types','specialites','villes'));
         return $pdf->download('telechargement1.pdf');
     }
+
+    //Wassim Meyyah
 }
